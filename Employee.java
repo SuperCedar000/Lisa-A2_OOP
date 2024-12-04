@@ -5,3 +5,14 @@ public class Employee extends Person {
         super(name, age);
         this.role = role;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Employee: " + getName() + ", Age: " + getAge() + 
+                           ", Role: " + role);
+    }
+}
