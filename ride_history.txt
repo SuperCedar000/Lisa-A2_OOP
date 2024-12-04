@@ -1,0 +1,3 @@
+Alice Brown,28,VIP001,true
+Bob Smith,34,VIP002,false
+Charlie Johnson,25,VIP003,true
