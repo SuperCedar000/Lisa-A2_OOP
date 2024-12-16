@@ -1,24 +1,31 @@
 public class Visitor extends Person {
-    private String membershipNumber;
-    private boolean isVIP;
+    private String ticketType;
+    private boolean hasMembership;
 
-    public Visitor(String name, int age, String membershipNumber, boolean isVIP) {
-        super(name, age);
-        this.membershipNumber = membershipNumber;
-        this.isVIP = isVIP;
+    // Default constructor
+    public Visitor() {}
+
+    // Constructor with parameters
+    public Visitor(String name, int age, String address, String ticketType, boolean hasMembership) {
+        super(name, age, address);
+        this.ticketType = ticketType;
+        this.hasMembership = hasMembership;
     }
 
-    public String getMembershipNumber() {
-        return membershipNumber;
+    // Getters and setters
+    public String getTicketType() {
+        return ticketType;
     }
 
-    public boolean isVIP() {
-        return isVIP;
+    public void setTicketType(String ticketType) {
+        this.ticketType = ticketType;
     }
 
-    @Override
-    public void displayInfo() {
-        System.out.println("Visitor: " + getName() + ", Age: " + getAge() + 
-                           ", Membership: " + membershipNumber + ", VIP: " + isVIP);
+    public boolean isHasMembership() {
+        return hasMembership;
+    }
+
+    public void setHasMembership(boolean hasMembership) {
+        this.hasMembership = hasMembership;
     }
 }
