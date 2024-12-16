@@ -16,11 +16,19 @@ public class AssignmentTwo {
     public void partOne() {
         System.out.println("Part 1 - Classes and Inheritance");
         Employee operator = new Employee("John Doe", 30, "123 Park Lane", "Ride Operator", 40000);
-        Visitor visitor = new Visitor("Alice", 25, "456 Main Street", "VIP", true);
+
+        // 添加5个游客，确保这些游客对象被使用
+        Visitor visitor1 = new Visitor("Boff", 25, "Address 1", "Regular", false);
+        Visitor visitor2 = new Visitor("Lsiq", 30, "Address 2", "VIP", true);
+        Visitor visitor3 = new Visitor("Lammy", 22, "Address 3", "Regular", false);
+        Visitor visitor4 = new Visitor("Oliu", 27, "Address 4", "VIP", true);
+        Visitor visitor5 = new Visitor("Pubil", 35, "Address 5", "Regular", false);
+
+        // 确保在后续逻辑中使用这些 Visitor 对象
         Ride rollerCoaster = new Ride("Roller Coaster", 5, operator, 3);
 
         // 测试继承和对象创建
-        System.out.println(visitor.getName() + " is a visitor. Ride operator is " + operator.getName());
+        System.out.println(visitor1.getName() + " is a visitor. Ride operator is " + operator.getName());
         System.out.println("Ride name: " + rollerCoaster.getRideName());
         System.out.println();
     }
@@ -28,9 +36,16 @@ public class AssignmentTwo {
     // Part 2: 抽象类和接口
     public void partTwo() {
         System.out.println("Part 2 - Abstract class and Interface");
+
         Ride rollerCoaster = new Ride("Roller Coaster", 10, new Employee("John", 30, "123 Main St", "Operator", 50000), 3);
-        rollerCoaster.addVisitorToQueue(new Visitor("Alice", 25, "Address 1", "Regular", false));
-        rollerCoaster.addVisitorToQueue(new Visitor("Bob", 30, "Address 2", "VIP", true));
+
+        // 添加5个游客
+        rollerCoaster.addVisitorToQueue(new Visitor("Boff", 25, "Address 1", "Regular", false));
+        rollerCoaster.addVisitorToQueue(new Visitor("Lsiq", 30, "Address 2", "VIP", true));
+        rollerCoaster.addVisitorToQueue(new Visitor("Lammy", 22, "Address 3", "Regular", false));
+        rollerCoaster.addVisitorToQueue(new Visitor("Oliu", 27, "Address 4", "VIP", true));
+        rollerCoaster.addVisitorToQueue(new Visitor("Pubil", 35, "Address 5", "Regular", false));
+
         rollerCoaster.printQueue();
         System.out.println();
     }
@@ -40,12 +55,12 @@ public class AssignmentTwo {
         System.out.println("Part 3 - Queue Interface");
         Ride rollerCoaster = new Ride("Roller Coaster", 10, new Employee("John", 30, "123 Main St", "Operator", 50000), 3);
 
-        // 添加 5 个游客到队列
-        rollerCoaster.addVisitorToQueue(new Visitor("Alice", 25, "Address 1", "Regular", false));
-        rollerCoaster.addVisitorToQueue(new Visitor("Bob", 30, "Address 2", "VIP", true));
-        rollerCoaster.addVisitorToQueue(new Visitor("Charlie", 22, "Address 3", "Regular", false));
-        rollerCoaster.addVisitorToQueue(new Visitor("Diana", 27, "Address 4", "VIP", true));
-        rollerCoaster.addVisitorToQueue(new Visitor("Edward", 35, "Address 5", "Regular", false));
+        // 添加5个游客到队列
+        rollerCoaster.addVisitorToQueue(new Visitor("Boff", 25, "Address 1", "Regular", false));
+        rollerCoaster.addVisitorToQueue(new Visitor("Lsiq", 30, "Address 2", "VIP", true));
+        rollerCoaster.addVisitorToQueue(new Visitor("Lammy", 22, "Address 3", "Regular", false));
+        rollerCoaster.addVisitorToQueue(new Visitor("Oliu", 27, "Address 4", "VIP", true));
+        rollerCoaster.addVisitorToQueue(new Visitor("Pubil", 35, "Address 5", "Regular", false));
 
         // 打印队列中的游客
         rollerCoaster.printQueue();
@@ -61,16 +76,21 @@ public class AssignmentTwo {
         System.out.println("Part 4A - Collection class (LinkedList)");
         Ride rollerCoaster = new Ride("Roller Coaster", 10, new Employee("John", 30, "123 Main St", "Operator", 50000), 3);
 
-        // 添加游客到 rideHistory
-        rollerCoaster.addVisitorToHistory(new Visitor("Alice", 25, "Address 1", "Regular", false));
-        rollerCoaster.addVisitorToHistory(new Visitor("Bob", 30, "Address 2", "VIP", true));
-        rollerCoaster.addVisitorToHistory(new Visitor("Charlie", 22, "Address 3", "Regular", false));
-        rollerCoaster.addVisitorToHistory(new Visitor("Diana", 27, "Address 4", "VIP", true));
-        rollerCoaster.addVisitorToHistory(new Visitor("Edward", 35, "Address 5", "Regular", false));
+        // 添加5个游客到历史记录
+        rollerCoaster.addVisitorToHistory(new Visitor("Boff", 25, "Address 1", "Regular", false));
+        rollerCoaster.addVisitorToHistory(new Visitor("Lsiq", 30, "Address 2", "VIP", true));
+        rollerCoaster.addVisitorToHistory(new Visitor("Lammy", 22, "Address 3", "Regular", false));
+        rollerCoaster.addVisitorToHistory(new Visitor("Oliu", 27, "Address 4", "VIP", true));
+        rollerCoaster.addVisitorToHistory(new Visitor("Pubil", 35, "Address 5", "Regular", false));
 
         // 打印所有游客信息
         rollerCoaster.printRideHistory();
         rollerCoaster.numberOfVisitors();
+
+        // 确认某个特定的访客是否在历史记录中
+        Visitor checkVisitor = new Visitor("Lammy", 22, "Address 3", "Regular", false);
+        rollerCoaster.checkVisitorFromHistory(checkVisitor);
+
         System.out.println();
     }
 
@@ -105,12 +125,17 @@ public class AssignmentTwo {
         System.out.println("Part 5 - Run a ride cycle");
         Ride rollerCoaster = new Ride("Roller Coaster", 10, new Employee("John", 30, "123 Main St", "Operator", 50000), 3);
 
-        // 添加游客到队列
-        rollerCoaster.addVisitorToQueue(new Visitor("Boff", 25, "Address 1", "Regular", false));
-        rollerCoaster.addVisitorToQueue(new Visitor("Lsiq", 30, "Address 2", "VIP", true));
-        rollerCoaster.addVisitorToQueue(new Visitor("Lammy", 22, "Address 3", "Regular", false));
-        rollerCoaster.addVisitorToQueue(new Visitor("Oliu", 27, "Address 4", "VIP", true));
-        rollerCoaster.addVisitorToQueue(new Visitor("Pubil", 35, "Address 5", "Regular", false));
+        // 添加10个游客到队列，名字依次修改
+        rollerCoaster.addVisitorToQueue(new Visitor("Plsi", 23, "Address 6", "VIP", false));
+        rollerCoaster.addVisitorToQueue(new Visitor("Ljuf", 26, "Address 7", "Regular", true));
+        rollerCoaster.addVisitorToQueue(new Visitor("Rtui", 28, "Address 8", "VIP", true));
+        rollerCoaster.addVisitorToQueue(new Visitor("Kity", 31, "Address 9", "Regular", false));
+        rollerCoaster.addVisitorToQueue(new Visitor("Looly", 32, "Address 10", "VIP", true));
+        rollerCoaster.addVisitorToQueue(new Visitor("Zeke", 29, "Address 11", "Regular", false));
+        rollerCoaster.addVisitorToQueue(new Visitor("Yara", 24, "Address 12", "VIP", true));
+        rollerCoaster.addVisitorToQueue(new Visitor("Ulya", 27, "Address 13", "Regular", false));
+        rollerCoaster.addVisitorToQueue(new Visitor("Xeno", 34, "Address 14", "VIP", true));
+        rollerCoaster.addVisitorToQueue(new Visitor("Vera", 29, "Address 15", "Regular", false));
 
         // 打印队列中的游客
         rollerCoaster.printQueue();
@@ -155,3 +180,4 @@ public class AssignmentTwo {
         rollerCoaster.printRideHistory();
     }
 }
+
